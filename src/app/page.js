@@ -6,7 +6,6 @@ import Card from '../components/Card'
 import { useScroll } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import Lenis from '@studio-freight/lenis'
-import '../../node_modules/bootstrap/dist/css/bootstrap.css'
 
 export default function Home() {
 
