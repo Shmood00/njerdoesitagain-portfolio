@@ -4,8 +4,9 @@ import styles from './page.module.css'
 import { projects } from '../data'
 import Card from '../components/Card'
 import { useScroll } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Lenis from '@studio-freight/lenis'
+import Header from '../components/Header'
 
 export default function Home() {
 
@@ -30,6 +31,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+      <Header></Header>
       
       {
 

@@ -20,30 +20,21 @@ const Card = ({ i, title, description, src, color, progress, range, targetScale 
     const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
     const scale = useTransform(progress, range, [1, targetScale]);
 
-    //triggers on image click
-    function showImg() {
-        const imCont = document.getElementById(i);
-
-
-    }
-
-    
-
     const [modalOpen, setModalOpen] = useState(false);
 
-    const isMobile = useMediaQuery({query: '(max-width: 720px)'});
+    const isMobile = useMediaQuery({ query: '(max-width: 720px)' });
 
 
     const settings = {
         normal: {
             left: 0,
             x: 0
-            
+
         },
 
         move: {
             left: isMobile ? 0 : 150,
-            x: isMobile ? 0 : -100
+            x: isMobile ? 0 : -100, //-100
         },
 
         exit: {
@@ -53,7 +44,7 @@ const Card = ({ i, title, description, src, color, progress, range, targetScale 
     }
 
     const controls = useAnimationControls();
-   
+
 
     const close = () => {
         setModalOpen(false);
@@ -62,16 +53,19 @@ const Card = ({ i, title, description, src, color, progress, range, targetScale 
 
     const open = () => {
         controls.start('move');
-        setModalOpen(true); 
+        setModalOpen(true);
     };
 
 
     return (
+
         <AnimatePresence
             initial={false}
             onExitComplete={() => null}
         >
-            <div 
+
+
+            <div
                 ref={container}
                 className={styles.cardContainer}
             >
@@ -81,7 +75,7 @@ const Card = ({ i, title, description, src, color, progress, range, targetScale 
                     variants={settings}
                     initial="normal"
                     animate={controls}
-                    exit="exit"        
+                    exit="exit"
 
                 >
                     <h2>{title}</h2>
@@ -90,11 +84,12 @@ const Card = ({ i, title, description, src, color, progress, range, targetScale 
                             <p>{description}</p>
                         </div>
 
-                        <div id={i} className={styles.imageContainer} onClick={() => (modalOpen ? close() : open() )}>
-                           
+                        <div id={i} className={styles.imageContainer} onClick={() => (modalOpen ? close() : open())}>
+
                             <motion.div
                                 className={styles.inner}
                                 style={{ scale: imageScale }}
+
                             >
                                 <Image
                                     fill
@@ -102,15 +97,17 @@ const Card = ({ i, title, description, src, color, progress, range, targetScale 
                                     alt="image"
                                     placeholder="blur"
                                     blurDataURL={`/images/${src}`}
+
+
                                 />
                             </motion.div>
                         </div>
-                        
+
                     </div>
-                    
+
                 </motion.div>
-                {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} imSrc={src} i={i} progress={progress} range={range} targ={targetScale}  />}
-                
+                {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} imSrc={src} i={i} progress={progress} range={range} targ={targetScale} />}
+
             </div>
 
         </AnimatePresence>
