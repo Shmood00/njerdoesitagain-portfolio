@@ -2,3 +2,9 @@
 .main {
   margin-top: 50vh;
 }
+
+@media (max-width: 720px){
+  .main {
+    margin-top: 40vh;
+  }
+}
