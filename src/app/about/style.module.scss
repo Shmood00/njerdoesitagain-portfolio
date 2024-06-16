@@ -15,7 +15,16 @@
         border-radius: 25px;
         padding: 50px;
         transform-origin: top;
-        background-color: aqua;
+        background-color: rgb(100, 95, 95);
+
+
+        /*transform: perspective(1500px) rotateX(-5deg);
+        box-shadow: rgba(122, 122, 122, 0.514) 0px 25px 50px -12px;
+        transition: transform 1s ease 0s;
+
+        &:hover {
+            transform: perspective(3000px) rotateX(5deg);
+        }*/
 
         h1 {
             text-align: center;

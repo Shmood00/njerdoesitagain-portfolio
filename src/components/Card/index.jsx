@@ -30,7 +30,8 @@ const Card = ({ i, title, description, src, color, rgbColor, progress, range, ta
     const settings = {
         normal: {
             left: 0,
-            x: 0
+            x: 0,
+            scale: scale.current
 
         },
 
@@ -91,6 +92,7 @@ const Card = ({ i, title, description, src, color, rgbColor, progress, range, ta
                     initial="normal"
                     animate={controls}
                     exit="exit"
+                    whileHover={{scale: scale.current+.02, transition: {ease: "easeInOut", duration: 1}}}
 
                 >
                     <h2>{title}</h2>

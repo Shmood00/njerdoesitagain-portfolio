@@ -167,7 +167,11 @@ const Navbar = () => {
 
                         </motion.ul>
                         <motion.div variants={fadeInVariant} className="contact">
-                            <h5>@njerdoesitagain</h5>
+                            <motion.div whileHover={{fontStyle: "italic"}}>
+                                <Link href="https://www.instagram.com/njerdoesitagain/" style={{ textDecoration: "none", color: "beige" }}>
+                                    <h5>@njerdoesitagain</h5>
+                                </Link>
+                            </motion.div>
                         </motion.div>
                     </div>
 

@@ -10,7 +10,7 @@ export default function About() {
     return (
 
         <div className={styles.container}>
-            <div className={styles.card}>
+            <motion.div className={styles.card} initial={{scale: 1}} whileHover={{scale: 1.02, transition: {ease: "easeInOut", duration: 1}}}>
                 <h1>Test</h1>
                 <div className={styles.body}>
                     <div className={styles.description}>
@@ -30,7 +30,7 @@ export default function About() {
 
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }
