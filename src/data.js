@@ -16,7 +16,7 @@ export const projects = [
         title: "Project Rays",
         description: "This is the description.",
         src: "rays.jpg",
-        color: "#85b8c6",
+        color: "#85b8c6", //85b8c6
         rgbColor: `${rgbDataURL(133, 184, 198)}`
     },
 

@@ -2,15 +2,26 @@
 
 import styles from './style.module.scss'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { easeInOut, motion } from 'framer-motion'
 
 export default function About() {
 
 
     return (
 
-        <div className={styles.container}>
-            <motion.div className={styles.card} initial={{scale: 1}} whileHover={{scale: 1.02, transition: {ease: "easeInOut", duration: 1}}}>
+        <div className={styles.container} id="card-con">
+            <motion.div 
+                className={styles.card} 
+                initial={{transformPerspective: "1500px"}}
+                transition={{ease: "easeInOut", duration: 0.5}}
+                whileHover={{
+                    transformPerspective: "3000px",
+                    rotateX: 2,
+                    translateY: -15,
+                    
+                }}
+                
+            >
                 <h1>Test</h1>
                 <div className={styles.body}>
                     <div className={styles.description}>
@@ -22,7 +33,6 @@ export default function About() {
                                 fill={true}
                                 src={`/images/me.jpeg`}
                                 alt="image"
-
                             >
 
                             </Image>

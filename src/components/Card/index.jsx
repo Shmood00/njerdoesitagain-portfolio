@@ -31,7 +31,8 @@ const Card = ({ i, title, description, src, color, rgbColor, progress, range, ta
         normal: {
             left: 0,
             x: 0,
-            scale: scale.current
+            scale: scale.current,
+            transformPerspective: "1500px"
 
         },
 
@@ -86,13 +87,15 @@ const Card = ({ i, title, description, src, color, rgbColor, progress, range, ta
                 className={styles.cardContainer}
             >
                 <motion.div
-                    style={{ backgroundColor: color, scale, top: `calc(-5vh + ${i * 25}px)` }}
+                    style={{ backgroundColor: color, scale, top: `calc(-5vh + ${i * 25}px)`}}
                     className={styles.card}
                     variants={settings}
                     initial="normal"
                     animate={controls}
                     exit="exit"
-                    whileHover={{scale: scale.current+.02, transition: {ease: "easeInOut", duration: 1}}}
+                    transition={{ease: "easeInOut", duration: 0.5}}
+                    //whileHover={{scale: scale.current+.02, transition: {ease: "easeInOut", duration: 1}}}
+                    whileHover={{transformPerspective: "3000px", rotateX: 2, translateY: -20}}
 
                 >
                     <h2>{title}</h2>
