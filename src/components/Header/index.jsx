@@ -6,7 +6,7 @@ const Header = () => {
     const settings = {
         hidden: {
             opacity: 0,
-            y: "1000vh"
+            y: "100vh"
         },
 
         show: {

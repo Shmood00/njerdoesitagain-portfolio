@@ -7,8 +7,11 @@ import { useScroll } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 import Lenis from '@studio-freight/lenis'
 import Header from '../components/Header'
+import Navbar from '../components/Navbar'
+import { AnimatePresence } from 'framer-motion'
 
-export default function Home() {
+
+export default function Index() {
 
 
   const container = useRef(null);
@@ -30,20 +33,21 @@ export default function Home() {
   }, [])
 
   return (
-    <main className={styles.main}>
-      <Header></Header>
-      
+    <AnimatePresence mode="wait" initial={false}>
+
+
       {
 
         projects.map((project, index) => {
           const targetScale = 1 - ((projects.length - index) * 0.05);
 
           //Beginning of range here is index * ( 1/ length of array [number of images being rendered on screen])
-          return <Card key={index} i={index} {...project} progress={scrollYProgress} range={[index * 0.14, 1]} targetScale={targetScale} />
+          return <Card key={index} i={index} {...project} progress={scrollYProgress} range={[index * (1 / projects.length), 1]} targetScale={targetScale} />
         })
 
       }
-      
-    </main>
+
+
+    </AnimatePresence>
   )
 }

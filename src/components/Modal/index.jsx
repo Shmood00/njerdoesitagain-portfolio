@@ -1,4 +1,4 @@
-import { color, motion, useTransform } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import Backdrop from "../Backdrop";
 import styles from './style.module.scss'
 import Image from 'next/image';
@@ -28,7 +28,7 @@ const dropIn = {
 
 const Modal = ({ handleClose, imSrc, i, progress, range, targ }) => {
 
-    const isMobile = useMediaQuery({ query: '(max-width: 720px)' })
+    const isMobile = useMediaQuery({ query: '(max-width: 720px)' });
 
     const scale = useTransform(progress, range, [1, targ]);
 
@@ -41,7 +41,7 @@ const Modal = ({ handleClose, imSrc, i, progress, range, targ }) => {
                     variants={dropIn}
                     initial="hidden"
                     animate="visible"
-                    exit="exit"
+                    exit="exit"                
 
                 >
 

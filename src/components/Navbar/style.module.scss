@@ -1,0 +1,109 @@
+.container {
+    height: 15vh;
+    background-color: rgb(0, 0, 0);
+    color: beige;
+    position: sticky;
+    overflow: hidden;
+    top: 0px;
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        padding: 35px 45px;
+
+        .navHeader {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .logocontainer {
+            overflow-y: hidden;
+
+            h1 {
+                text-transform: uppercase;
+                font-size: 20px;
+            }
+
+
+        }
+
+        .menucontainer {
+            overflow-y: hidden;
+
+            div {
+                text-transform: uppercase;
+                font-size: 20px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+
+            }
+
+
+        }
+    }
+
+    .mobilemenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
+
+        button {
+            align-self: flex-end;
+            margin: 35px 45px 0 0;
+            outline: none;
+            border: none;
+            background-color: transparent;
+            text-transform: uppercase;
+            font-family: inherit;
+            font-size: 20px;
+            color: white;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 40px;
+
+            li {
+                margin: 20px 0;
+                overflow-y: hidden;
+                user-select: none;
+
+                div {
+                    text-align: center;
+                    text-transform: capitalize;
+                    font-size: 34px;
+                }
+
+                &:hover {
+                    font-style: italic;
+                    cursor: pointer;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: beige;
+
+            }
+        }
+
+
+    }
+}

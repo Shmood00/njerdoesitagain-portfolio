@@ -7,8 +7,7 @@ import Modal from '../Modal'
 import { useMediaQuery } from 'react-responsive';
 
 
-const Card = ({ i, title, description, src, color, progress, range, targetScale }) => {
-
+const Card = ({ i, title, description, src, color, rgbColor, progress, range, targetScale }) => {
 
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -17,12 +16,15 @@ const Card = ({ i, title, description, src, color, progress, range, targetScale 
     })
 
 
-    const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
+    const imageScale = useTransform(scrollYProgress, [0, 1], [4, 1]);
+
+
     const scale = useTransform(progress, range, [1, targetScale]);
 
     const [modalOpen, setModalOpen] = useState(false);
 
     const isMobile = useMediaQuery({ query: '(max-width: 720px)' });
+    
 
 
     const settings = {
@@ -34,7 +36,7 @@ const Card = ({ i, title, description, src, color, progress, range, targetScale 
 
         move: {
             left: isMobile ? 0 : 150,
-            x: isMobile ? 0 : -100, //-100
+            x: isMobile ? 0 : -100,
         },
 
         exit: {
@@ -43,19 +45,34 @@ const Card = ({ i, title, description, src, color, progress, range, targetScale 
         }
     }
 
+
     const controls = useAnimationControls();
 
-
     const close = () => {
+
+        var nav = document.getElementById("nav-container");
+
+        
         setModalOpen(false);
         controls.start('exit');
-    };
+
+        if(isMobile){
+            nav.style.zIndex = "1";
+        }
+    }
 
     const open = () => {
+
+        var nav = document.getElementById("nav-container");
+
         controls.start('move');
         setModalOpen(true);
-    };
 
+        if(isMobile){
+            nav.style.zIndex = "0";
+        }
+
+    };
 
     return (
 
@@ -63,8 +80,6 @@ const Card = ({ i, title, description, src, color, progress, range, targetScale 
             initial={false}
             onExitComplete={() => null}
         >
-
-
             <div
                 ref={container}
                 className={styles.cardContainer}
@@ -88,16 +103,15 @@ const Card = ({ i, title, description, src, color, progress, range, targetScale 
 
                             <motion.div
                                 className={styles.inner}
-                                style={{ scale: imageScale }}
-
+                                style={{ scale: imageScale, opacity: 1 }}
+                                whileHover={{opacity: 0.93}}
                             >
                                 <Image
-                                    fill
+                                    fill={true}
                                     src={`/images/${src}`}
                                     alt="image"
                                     placeholder="blur"
-                                    blurDataURL={`/images/${src}`}
-
+                                    blurDataURL={rgbColor}
 
                                 />
                             </motion.div>
