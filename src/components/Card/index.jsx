@@ -94,7 +94,6 @@ const Card = ({ i, title, description, src, color, rgbColor, progress, range, ta
                     animate={controls}
                     exit="exit"
                     transition={{ease: "easeInOut", duration: 0.5}}
-                    //whileHover={{scale: scale.current+.02, transition: {ease: "easeInOut", duration: 1}}}
                     whileHover={{transformPerspective: "3000px", rotateX: 2, translateY: -20}}
 
                 >
