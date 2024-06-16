@@ -78,7 +78,8 @@
 
         ul {
             list-style: none;
-            margin-top: 40px;
+            margin-right: 40px;
+            align-items: center;
 
             li {
                 margin: 20px 0;
@@ -101,6 +102,27 @@
                 text-decoration: none;
                 color: beige;
 
+            }
+        }
+
+
+        .group {
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+
+            .contact {
+                margin-top: 80px;
+                display: flex;
+                justify-content: center;
+
+                h5 {
+                    font-weight: normal;
+
+                    &:first-of-type {
+                        margin-right: 40px;
+                    }
+                }
             }
         }
 

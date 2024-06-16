@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 import { useMediaQuery } from 'react-responsive';
 
 const Navbar = () => {
-    
+
     const currentPath = usePathname();
 
     const [isToggled, setToggle] = useState(false);
@@ -119,7 +119,7 @@ const Navbar = () => {
         forward: {
             zIndex: 1
         }
-        
+
     }
 
 
@@ -127,7 +127,7 @@ const Navbar = () => {
         <motion.div className={styles.container}
             variants={navZIndex}
             initial="forward"
-            style={isToggled ? { zIndex: 1 } :  { zIndex: 0 }}
+            style={isToggled ? { zIndex: 1 } : { zIndex: 0 }}
             id="nav-container"
         >
             <motion.nav
@@ -154,15 +154,22 @@ const Navbar = () => {
                     >
                         Close
                     </motion.button>
-                    <motion.ul variants={ulVariant}>
-                        {MOBILE_NAV_ITEMS.map(navItem => (
-                            <motion.li whileTap={{ scale: 0.95 }} key={navItem.id}>
-                                <Link href={navItem.link} onClick={() => setToggle(false)}>
-                                    <motion.div variants={liVariant}>{navItem.navTitle}</motion.div>
-                                </Link>
-                            </motion.li>
-                        ))}
-                    </motion.ul>
+                    <div className={styles.group}>
+                        <motion.ul variants={ulVariant}>
+                            {MOBILE_NAV_ITEMS.map(navItem => (
+                                <motion.li whileTap={{ scale: 0.95 }} key={navItem.id}>
+                                    <Link href={navItem.link} onClick={() => setToggle(false)}>
+                                        <motion.div variants={liVariant}>{navItem.navTitle}</motion.div>
+                                    </Link>
+                                </motion.li>
+
+                            ))}
+
+                        </motion.ul>
+                        <motion.div variants={fadeInVariant} className="contact">
+                            <h5>@njerdoesitagain</h5>
+                        </motion.div>
+                    </div>
 
                 </motion.div>
             </motion.nav>
